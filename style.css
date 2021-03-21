@@ -1,0 +1,17 @@
+body {
+    color: aquamarine;
+}
+
+p {
+    font-size: 20px;
+}
+
+/*'.' used to assign to classes*/
+.paragraphclass {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/*'#' used to assign to ids */
+#idsarealwaysunique {
+    font-style: italic;
+}
