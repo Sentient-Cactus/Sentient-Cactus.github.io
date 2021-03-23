@@ -1,17 +1,66 @@
-body {
-    color: aquamarine;
+@keyframes fadeOut {
+
+    100% {filter: opacity(0%);}
+
 }
 
-p {
-    font-size: 20px;
+@keyframes slideToRight {
+    100% {background-position: left center ;}
 }
 
-/*'.' used to assign to classes*/
-.paragraphclass {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+/*
+For the horizontal banner
+Should probably separate the two images
+I need to display here to different divs
+*/
+
+
+#HorizontalFirstImage {
+    border: black, 1px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 150px;
+    width: 50%;
+    background-image: url(man-facing-buildings.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment:scroll;
+
+    /* DO I need this? */
+    display: block;
+
+    animation-name: fadeOut, slideToRight;
+    animation-duration: 1s, 1s;
+    animation-delay: 2s;
+    /* Prevents animation from resetting to initial state */
+    animation-fill-mode: forwards;
 }
 
-/*'#' used to assign to ids */
-#idsarealwaysunique {
-    font-style: italic;
+
+@keyframes scrollUp {
+    100% {background-position: center top ;}
 }
+
+#HorizontalSecondImage {
+    border: black, 1px;
+    height: 150px;
+    width: 100%;
+    background-image: url(piha-beach.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-attachment: local;
+
+    display: block;
+
+    animation-name: scrollUp;
+    animation-duration: 6s;
+    animation-delay: 5s;
+
+    animation-fill-mode: forwards;
+}
+
+/*
+
+Images were obtained from http://www.piha.co.nz/
+
+*/
