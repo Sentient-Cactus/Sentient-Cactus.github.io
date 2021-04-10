@@ -1,50 +1,52 @@
-@keyframes fadeOut {
+/* START OF PART 1 CODE */
+
+@keyframes fadeImageOut {
 
     100% {filter: opacity(0%);}
 
 }
 
-@keyframes slideToRight {
-    100% {background-position: left center ;}
+@keyframes slideImageRight {
+    100% {background-position: center;}
 }
 
-/*
-For the horizontal banner
-Should probably separate the two images
-I need to display here to different divs
-*/
-
-
-#HorizontalFirstImage {
+.HorizontalBanner {
     border: black, 1px;
+    /* Having margin-left/right: auto centers the div */
     margin-left: auto;
     margin-right: auto;
-    height: 150px;
-    width: 50%;
+    height: 200px;
+    width: 400px;
+}
+
+.BannerText {
+    position: absolute;
+}
+
+#HorizontalFirstImage {
+    
     background-image: url(man-facing-buildings.jpg);
     background-repeat: no-repeat;
-    background-position: center;
-    background-attachment:scroll;
+    background-position: center right;
+    background-attachment: scroll;
 
     /* DO I need this? */
     display: block;
 
-    animation-name: fadeOut, slideToRight;
-    animation-duration: 1s, 1s;
-    animation-delay: 2s;
+    animation-name: fadeImageOut, slideImageRight;
+    animation-duration: 5s, 1s;
+    animation-delay: 3s, 1s;
     /* Prevents animation from resetting to initial state */
     animation-fill-mode: forwards;
 }
 
 
-@keyframes scrollUp {
+@keyframes scrollImageUp {
     100% {background-position: center top ;}
 }
 
 #HorizontalSecondImage {
-    border: black, 1px;
-    height: 150px;
-    width: 100%;
+
     background-image: url(piha-beach.jpg);
     background-repeat: no-repeat;
     background-position: bottom;
@@ -52,15 +54,116 @@ I need to display here to different divs
 
     display: block;
 
-    animation-name: scrollUp;
+    animation-name: scrollImageUp;
     animation-duration: 6s;
-    animation-delay: 5s;
+    animation-delay: 6s;
 
     animation-fill-mode: forwards;
 }
+
+@keyframes fadeTextIn {
+
+    100% {opacity: 1;}
+}
+
+@keyframes slideTextLeft
+{
+    100% {transform: translateX(20px);}
+}
+
+#Name {
+
+    top: 10px;
+    left: 600px;
+    display: block;
+    /* Don't want text visible until animation plays */
+    opacity: 0;
+    
+    animation-name: slideTextLeft, fadeTextIn;
+    animation-delay: 11s;
+    animation-duration: 2s;
+
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes slideTextRight 
+{
+    100% {transform: translateX(-20px);}
+}
+
+.HorizontalText {
+    color: mediumspringgreen;
+    position: absolute;
+}
+
+#ID {
+
+    top: 10px;
+    right: 600px;
+    
+    display: block;
+    opacity: 0;
+
+    animation-name: slideTextRight, fadeTextIn;
+    animation-delay: 11s;
+    animation-duration: 2s;
+
+    animation-fill-mode: forwards;
+}
+
+@keyframes changeSizeTwice {
+    0% {transform: scale(1.5, 1.5);}
+    25% {transform: scale(1, 1);}
+    50%, 100% {transform: scale(0.5, 0.5);}
+
+}
+
+@keyframes fadeTwice {
+    40% {opacity: 1;}
+    60%, 100% {opacity: 0;}
+}
+
+#HorizontalFirstText {
+
+    top: 30px;
+    left: 750px;
+    opacity: 0;
+
+    animation-name: fadeTwice, changeSizeTwice;
+    animation-duration: 6s;
+    animation-iteration-count: 2;
+
+    animation-fill-mode: forwards;
+}
+
+@keyframes loopLimeColour {
+    50% {color: mediumspringgreen;}
+}
+
+#HorizontalSecondText {
+
+    top: 60px;
+    left: 760px;
+    color: mediumvioletred;
+    opacity: 0;
+
+    animation-name: fadeTextIn, loopLimeColour;
+    animation-delay: 6s;
+    animation-duration: 3s, 3s;
+    animation-iteration-count: 1, infinite;
+
+    animation-fill-mode: forwards;
+}
+
+/* END OF PART 1 CODE */
+
 
 /*
 
 Images were obtained from http://www.piha.co.nz/
 
+fadeTextIn referenced from: https://stackoverflow.com/questions/8449933/animation-css3-display-opacity
+changeSizeTwice and fadeTwice referenced from: https://css-tricks.com/css-keyframe-animation-delay-iterations/
 */
+
