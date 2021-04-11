@@ -74,9 +74,11 @@
 }
 
 #Name {
-
+    color: mediumspringgreen;
+    position: absolute;
     top: 10px;
     left: 600px;
+    border: 1px black;
     display: block;
     /* Don't want text visible until animation plays */
     opacity: 0;
@@ -94,16 +96,13 @@
     100% {transform: translateX(-20px);}
 }
 
-.HorizontalText {
-    color: mediumspringgreen;
-    position: absolute;
-}
 
 #ID {
-
+    color: mediumspringgreen;
+    position: absolute;
     top: 10px;
     right: 600px;
-    
+    border: 1px black;
     display: block;
     opacity: 0;
 
@@ -127,9 +126,11 @@
 }
 
 #HorizontalFirstText {
-
+    color: mediumspringgreen;
+    position: absolute;
     top: 30px;
     left: 750px;
+    border: 1px black;
     opacity: 0;
 
     animation-name: fadeTwice, changeSizeTwice;
@@ -144,9 +145,10 @@
 }
 
 #HorizontalSecondText {
-
+    position: absolute;
     top: 60px;
     left: 760px;
+    border: 1px black;
     color: mediumvioletred;
     opacity: 0;
 
@@ -204,7 +206,7 @@ Date: 20 July 2016
 
 
 /*
-BIG NOTE: DO NOT USE % WHEN ADJUSTING background
+BIG NOTE: DO NOT USE % WHEN ANIMATING background
 It forces the animation to appear snappy
 Big cause of my headache for Part 2...
 */
@@ -256,11 +258,72 @@ aside {
     font-size: 10px;
 }
 
+#TextBox {
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 250px;
+    right: 18px;
+}
+
+#LeftHalf {
+    float: left;
+}
+
+#VerticalFirstText {
+    left: 100%;
+    opacity: 0;
+
+    float: left;
+    text-align: right;
+
+    animation-name: slideLeftView, slideRightAway, slideRightIntoView, slideLeftAndFadeOut;
+    animation-delay: 2s, 4.5s, 9s;
+    animation-duration: 1s, 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideLeftView {
+
+    100% {
+        
+        transform: translateX(-10px);
+        opacity: 1;
+    }
+}
+
+@keyframes slideRightAway {
+
+    100% {transform: translate(-120px);}
+}
+
+@keyframes slideRightIntoView {
+    100% {transform: translateX(0px) ;}
+}
+
+#VerticalSecondText {
+    float: right;
+    text-align: left;
+}
+
+#VerticalThirdText {
+    
+    text-align: center;
+}
+
+.VerticalText {
+    font-family: Verdana, Tahoma, sans-serif;
+    color: dimgray;
+    font-size: 18px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
 #ToyotaLogo {
     width: 60px;
     height: 50px;
     border: 1px black;
-    
+
     top: 630px;
     right: 160px;
     background-image: url(toyota-logo-white.png);
@@ -269,6 +332,18 @@ aside {
     position: absolute;
 }
 
+#HiluxLogo {
+    width: 80px;
+    height: 30px;
+    border: 1px black;
+
+    top: 635px;
+    right: 10px;
+    background-image: url(hilux-logo.png);
+    background-repeat: no-repeat;
+    background-size: 80px 30px;
+    position: absolute;
+}
 /* The element used to hold the texts that appear */
 
 /*
@@ -287,6 +362,10 @@ Date: UNKNOWN
 Toyota Logo image obtained from: https://www.pngitem.com/so/toyota-logo/
 Author: Arzu Aslanov?
 Date: UNKNOWN
+
+Hilux Logo image obtained from: https://toyotayemen.com/en/commercial/hilux
+Author: UNKNOWN
+DATE: UNKNOWN
 */
 
 
