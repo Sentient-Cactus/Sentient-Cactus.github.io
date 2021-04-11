@@ -26,9 +26,10 @@
 #HorizontalFirstImage {
     
     background-image: url(man-facing-buildings.jpg);
+    background-color: grey;
     background-repeat: no-repeat;
     background-position: center right;
-    background-attachment: scroll;
+    background-attachment: local;
 
     /* DO I need this? */
     display: block;
@@ -48,6 +49,7 @@
 #HorizontalSecondImage {
 
     background-image: url(piha-beach.jpg);
+    background-color: grey;
     background-repeat: no-repeat;
     background-position: bottom;
     background-attachment: local;
@@ -156,14 +158,136 @@
     animation-fill-mode: forwards;
 }
 
+/*
+Images were obtained from: http://www.piha.co.nz/
+Author: UNKNOWN
+Date: UNKNOWN
+
+fadeTextIn referenced from: https://stackoverflow.com/questions/8449933/animation-css3-display-opacity
+Author: Chris
+Date: 19 June 2013
+
+changeSizeTwice and fadeTwice referenced from: https://css-tricks.com/css-keyframe-animation-delay-iterations/
+Author: Chris Coyier
+Date: 20 July 2016
+*/
+
+
 /* END OF PART 1 CODE */
+
+/* START OF PART 2 CODE */
+
+/* The main element of Part 2, manipulates the image */
+.VerticalBanner {
+    width: 220px;
+    height: 450px;
+    border: black, 1px;
+    float: right;
+    
+}
+
+
+@keyframes fadeOutQuickly {
+    100% {opacity: 0;}
+}
+
+#BlackCover {
+    width: inherit;
+    height: inherit;
+    border: 1px black;
+    background-color: black;
+    
+    animation-name: fadeOutQuickly;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
 
 
 /*
+BIG NOTE: DO NOT USE % WHEN ADJUSTING background
+It forces the animation to appear snappy
+Big cause of my headache for Part 2...
+*/
+#VerticalImage {
+    width: 220px;
+    height: 450px;
+    border: 1px black;
+    background-image: url('tesla-vehicle.jpg');
+    background-size: 1000px 800px;
+    background-position: -100px -100px;
+    background-repeat: no-repeat;
 
-Images were obtained from http://www.piha.co.nz/
 
-fadeTextIn referenced from: https://stackoverflow.com/questions/8449933/animation-css3-display-opacity
-changeSizeTwice and fadeTwice referenced from: https://css-tricks.com/css-keyframe-animation-delay-iterations/
+    animation-name: resize, moveRight, resizeAndCentre, resizeToFinal;
+    animation-duration: 1s, 1s, 1s, 2s;
+    animation-delay: 1s, 4.5s, 7s, 10s;
+    animation-timing-function: ease-in-out, ease-in-out, ease-in, ease-in ;
+
+    animation-fill-mode: forwards;
+    
+}
+
+@keyframes resize {
+    100% {background-size: 800px 700px;}
+}
+
+@keyframes moveRight {
+    100% {background-position-x: -350px;}
+}
+
+@keyframes resizeAndCentre {
+    100% {
+        
+        background-position: -180px, -30px;
+        background-size: 700px 600px;
+        
+    }
+}
+
+@keyframes resizeToFinal {
+    100% {background-size: 600px 500px;}
+}
+
+aside {
+    float: right;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: grey;
+    font-size: 10px;
+}
+
+#ToyotaLogo {
+    width: 60px;
+    height: 50px;
+    border: 1px black;
+    
+    top: 630px;
+    right: 160px;
+    background-image: url(toyota-logo-white.png);
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    position: absolute;
+}
+
+/* The element used to hold the texts that appear */
+
+/*
+Tesla vehicle image obtained from: https://www.autoevolution.com/cars/tesla-motors-roadster-2018.html#aeng_tesla-motors-roadster-2018-568-kw-awd-772-hp
+Author: TESLA MOTORS
+Date: UNKNOWN
+
+aside reference from: https://www.w3schools.com/html/html5_semantic_elements.asp
+Author: UNKNOWN
+Date: UNKNOWN
+
+VerticalImage referenced from: https://www.w3schools.com/csSref/tryit.asp?filename=trycss_anim_background-size
+Author: UNKNOWN
+Date: UNKNOWN
+
+Toyota Logo image obtained from: https://www.pngitem.com/so/toyota-logo/
+Author: Arzu Aslanov?
+Date: UNKNOWN
 */
 
+
+/* END OF PART 2 CODE */
